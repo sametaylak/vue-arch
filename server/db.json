@@ -1,0 +1,42 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product001",
+      "cost": 10,
+      "quantity": 1000
+    },
+    {
+      "id": 2,
+      "name": "Product002",
+      "cost": 20,
+      "quantity": 2000
+    },
+    {
+      "id": 3,
+      "name": "Product003",
+      "cost": 30,
+      "quantity": 3000
+    },
+    {
+      "id": 4,
+      "name": "Product004",
+      "cost": 40,
+      "quantity": 4000
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "name": "Brand001"
+    },
+    {
+      "id": 2,
+      "name": "Brand002"
+    },
+    {
+      "id": 3,
+      "name": "Brand003"
+    }
+  ]
+}
