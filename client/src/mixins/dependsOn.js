@@ -43,6 +43,17 @@ export default function dependsOn (entity) {
                 } finally {
                     store.dispatch('wait/end', `${entity}Delete`, { root: true })
                 }
+            },
+            [`${entityHolder}Update`]: async (id, payload) => {
+                try {
+                    store.dispatch('wait/start', `${entity}Update`, { root: true })
+                    await e.api().updateById(id, payload)
+                    store.dispatch('wait/end', `${entity}Update`, { root: true })
+                } catch (e) {
+                    console.error(e)
+                } finally {
+                    store.dispatch('wait/end', `${entity}Delete`, { root: true })
+                }
             }
         },
         computed: {

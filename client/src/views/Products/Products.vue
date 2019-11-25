@@ -4,7 +4,12 @@
         <ul v-else-if="products">
             <li v-for="product in products" :key="product.id">
                 #{{ product.id }} - {{ product.name }}
+                <template v-if="editedProcuductId === product.id">
+                    <input type="text" v-model="editedProduct.name" />
+                    <button @click="updateProduct()">Update</button>
+                </template>
                 <button @click="deleteProduct(product.id)">Delete</button>
+                <button @click="editedProcuductId = product.id; editedProduct.name = product.name">Edit</button>
             </li>
         </ul>
         <input type="text" v-model="product.name"/>
@@ -22,6 +27,10 @@ export default {
     ],
     data() {
         return {
+            editedProcuductId: -1,
+            editedProduct: {
+                name: ''
+            },
             product: {
                 name: ''
             }
@@ -44,6 +53,9 @@ export default {
         },
         deleteProduct(id) {
             this.productsDelete(id)
+        },
+        updateProduct() {
+            this.productsUpdate(this.editedProcuductId, this.editedProduct)
         }
     }
 }

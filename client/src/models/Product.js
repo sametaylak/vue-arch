@@ -24,6 +24,10 @@ export default class Product extends Model {
             },
             deleteById(id) {
                 this.delete(`/${id}`)
+            },
+            updateById(id, product) {
+                const updatedProduct = new Product(product)
+                this.put(`/${id}`, updatedProduct)
             }
         }
     }
