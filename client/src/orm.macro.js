@@ -6,6 +6,10 @@ import axios from 'axios'
 import VuexORM from '@vuex-orm/core'
 import VuexORMAxios from '@vuex-orm/plugin-axios'
 
+import { requestInterceptor, requestInterceptorCatch } from '@/interceptor'
+
+axios.interceptors.request.use(requestInterceptor, requestInterceptorCatch);
+
 VuexORM.use(VuexORMAxios, { axios })
 
 `
