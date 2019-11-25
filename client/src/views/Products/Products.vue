@@ -4,6 +4,7 @@
         <ul v-else-if="products">
             <li v-for="product in products" :key="product.id">
                 #{{ product.id }} - {{ product.name }}
+                <button @click="deleteProduct(product.id)">Delete</button>
             </li>
         </ul>
         <input type="text" v-model="product.name"/>
@@ -40,6 +41,9 @@ export default {
     methods: {
         addProduct() {
             this.productsCreate(this.product)
+        },
+        deleteProduct(id) {
+            this.productsDelete(id)
         }
     }
 }

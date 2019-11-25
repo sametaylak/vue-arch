@@ -21,6 +21,9 @@ export default class Product extends Model {
             create(product) {
                 const newProduct = new Product(product)
                 return this.post('/', newProduct)
+            },
+            deleteById(id) {
+                this.delete(`/${id}`)
             }
         }
     }
